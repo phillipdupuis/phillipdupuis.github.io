@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+---
+
+<Layout title="Page not found" description="404, Page not found">
+  <Nav />
+  <main>
+    <div class="w-3/4 max-w-80 mx-auto rounded-full mt-8">
+      <img
+        src="/rbf.jpg"
+        alt="Profile picture"
+        class="object-contain w-full h-full overflow-hidden rounded-full border-4 border-red-700"
+      />
+    </div>
+    <h1 class="text-3xl font-bold text-red-700 text-center mt-8">404</h1>
+    <h2 class="text-lg font-semibold text-red-700 text-center mt-2">
+      No page found for "{Astro.url.pathname}"
+    </h2>
+  </main>
+</Layout>

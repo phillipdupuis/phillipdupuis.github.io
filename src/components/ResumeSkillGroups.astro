@@ -1,0 +1,39 @@
+---
+import type { SkillGroup } from "../content/resume";
+
+interface Props {
+  skillGroups: SkillGroup[];
+}
+
+const { skillGroups } = Astro.props;
+---
+
+<div class="space-y-1 text-sm sm:text-base">
+  {
+    skillGroups.map((group) => (
+      <div class="flex flex-wrap items-baseline gap-x-2">
+        <div class="flex items-center gap-x-2 font-semibold text-green-600">
+          {/* <span>•</span> */}
+          <h3>{group.category}:</h3>
+        </div>
+        <p>
+          {group.skills.map((skill, index) => (
+            <span>
+              <span
+                class={skill.details ? "relative cursor-help" : "relative"}
+                title={skill.details}
+              >
+                {skill.name + (index < group.skills.length - 1 ? ", " : "")}
+                {skill.details && (
+                  <span class="hidden group-hover:block absolute bottom-full left-0 mb-2 p-2 w-64 bg-neutral-800 text-sm rounded shadow-lg z-10">
+                    {skill.details}
+                  </span>
+                )}
+              </span>
+            </span>
+          ))}
+        </p>
+      </div>
+    ))
+  }
+</div>

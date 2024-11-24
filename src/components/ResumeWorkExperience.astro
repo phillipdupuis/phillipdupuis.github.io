@@ -1,0 +1,31 @@
+---
+import type { Job } from "../content/resume";
+
+interface Props {
+  jobs: Job[];
+}
+
+const { jobs } = Astro.props;
+---
+
+<div class="space-y-4 text-sm sm:text-base">
+  {
+    jobs.map((job) => (
+      <section>
+        <div class="flex justify-between items-baseline text-green-600 flex-wrap">
+          <h3 class="font-semibold">{job.title}</h3>
+          <span>{job.period}</span>
+        </div>
+        <div class="flex justify-between items-baseline text-green-600 flex-wrap">
+          <span>{job.company}</span>
+          <span>{job.location}</span>
+        </div>
+        <ul class="list-disc list-inside space-y-2 mt-2">
+          {job.achievements.map((achievement) => (
+            <li class="ml-2">{achievement}</li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</div>

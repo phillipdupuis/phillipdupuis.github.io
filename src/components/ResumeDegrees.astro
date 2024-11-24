@@ -1,0 +1,29 @@
+---
+import type { Degree } from "../content/resume";
+
+interface Props {
+  degrees: Degree[];
+}
+
+const { degrees } = Astro.props;
+---
+
+<div class="space-y-4 text-sm sm:text-base">
+  {
+    degrees.map((degree) => (
+      <section>
+        <div class="flex justify-between items-baseline text-green-600 flex-wrap">
+          <h3 class="font-semibold">{degree.title}</h3>
+          <span>{degree.period}</span>
+        </div>
+        <div class="flex justify-between items-baseline text-green-600 flex-wrap">
+          <span>{degree.institution}</span>
+          <span>{degree.location}</span>
+        </div>
+        {degree.description && (
+          <p class="whitespace-pre-line">{degree.description}</p>
+        )}
+      </section>
+    ))
+  }
+</div>

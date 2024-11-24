@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import ResumeSkillGroups from "../components/ResumeSkillGroups.astro";
+import ResumeWorkExperience from "../components/ResumeWorkExperience.astro";
+import ResumeProjects from "../components/ResumeProjects.astro";
+import ResumeDegrees from "../components/ResumeDegrees.astro";
+
+import * as RESUME from "../content/resume";
+---
+
+<Layout title="Resume - Phillip Dupuis" description="Phillip Dupuis' resume">
+  <Nav />
+  <main class="min-h-screen">
+    <div
+      class="max-w-4xl mx-auto space-y-6 py-8 px-6 sm:px-2 text-neutral-950 dark:text-neutral-50"
+    >
+      <!-- About Me -->
+      <section>
+        <h2
+          class="text-lg sm:text-xl font-bold text-green-600 border-b border-green-600 pb-2 mb-2"
+        >
+          ABOUT ME
+        </h2>
+        <p class="text-sm sm:text-base whitespace-pre-line">{RESUME.ABOUT}</p>
+      </section>
+
+      <!-- Skills -->
+      <section>
+        <h2
+          class="text-lg sm:text-xl font-bold text-green-600 border-b border-green-600 pb-2 mb-2"
+        >
+          SKILLS
+        </h2>
+        <ResumeSkillGroups skillGroups={RESUME.SKILL_GROUPS} />
+      </section>
+
+      <!-- Experience -->
+      <section>
+        <h2
+          class="text-lg sm:text-xl font-bold text-green-600 border-b border-green-600 pb-2 mb-2"
+        >
+          WORK EXPERIENCE
+        </h2>
+        <ResumeWorkExperience jobs={RESUME.JOBS} />
+      </section>
+
+      <!-- Projects -->
+      <section>
+        <h2
+          class="text-lg sm:text-xl font-bold text-green-600 border-b border-green-600 pb-2 mb-2"
+        >
+          PROJECTS
+        </h2>
+        <ResumeProjects projects={RESUME.PROJECTS} />
+      </section>
+
+      <!-- Education -->
+      <section>
+        <h2
+          class="text-lg sm:text-xl font-bold text-green-600 border-b border-green-600 pb-2 mb-2"
+        >
+          EDUCATION
+        </h2>
+        <ResumeDegrees degrees={RESUME.DEGREES} />
+      </section>
+    </div>
+  </main>
+</Layout>
