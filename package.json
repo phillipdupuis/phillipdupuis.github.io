@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "pdf": "NODE_OPTIONS=\"--loader ts-node/esm\" ts-node src/resume/generate-pdf.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -16,10 +17,21 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "astro": "^4.16.13",
+    "astro-icon": "^1.1.4",
     "lucide": "^0.460.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@types/node": "^22.9.3",
+    "commander": "^12.1.0",
+    "openai": "^4.73.0",
+    "playwright": "^1.49.0",
+    "ts-node": "^10.9.2",
+    "zod": "^3.23.8",
+    "zod-to-json-schema": "^3.23.5"
   }
 }

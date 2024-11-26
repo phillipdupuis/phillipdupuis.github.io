@@ -1,19 +1,18 @@
 ---
-import type { SkillGroup } from "../content/resume";
+import type { SkillGroup } from "../resume/schema";
 
 interface Props {
-  skillGroups: SkillGroup[];
+  skills: SkillGroup[];
 }
 
-const { skillGroups } = Astro.props;
+const { skills } = Astro.props;
 ---
 
 <div class="space-y-1 text-sm sm:text-base">
   {
-    skillGroups.map((group) => (
+    skills.map((group) => (
       <div class="flex flex-wrap items-baseline gap-x-2">
-        <div class="flex items-center gap-x-2 font-semibold text-green-600">
-          {/* <span>•</span> */}
+        <div class="text-primary brightness-75 flex items-center gap-x-2 font-semibold">
           <h3>{group.category}:</h3>
         </div>
         <p>

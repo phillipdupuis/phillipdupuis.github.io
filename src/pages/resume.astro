@@ -1,68 +1,79 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Nav from "../components/Nav.astro";
-import ResumeSkillGroups from "../components/ResumeSkillGroups.astro";
-import ResumeWorkExperience from "../components/ResumeWorkExperience.astro";
+import ContactInfo from "../components/ResumeContactInfo.astro";
+import Skills from "../components/ResumeSkills.astro";
+import ResumeJobs from "../components/ResumeJobs.astro";
 import ResumeProjects from "../components/ResumeProjects.astro";
 import ResumeDegrees from "../components/ResumeDegrees.astro";
 
-import * as RESUME from "../content/resume";
+import { BASE_RESUME } from "../resume/versions";
 ---
 
 <Layout title="Resume - Phillip Dupuis" description="Phillip Dupuis' resume">
-  <Nav />
   <main class="min-h-screen">
-    <div
-      class="max-w-4xl mx-auto space-y-6 py-8 px-6 sm:px-2 text-neutral-950 dark:text-neutral-50"
-    >
+    <div class="max-w-4xl mx-auto space-y-6 py-8 px-6 sm:px-2">
+      <!-- <a href="/resume.pdf" download="Phillip-Dupuis-Resume.pdf">
+        <button
+          class="bg-primary text-white font-bold py-2 px-4 rounded-full hover:brightness-125 transition-colors"
+        >
+          Download PDF
+        </button>
+      </a> -->
+      <!-- Contact info -->
+      <section>
+        <ContactInfo contact={BASE_RESUME.contact} />
+      </section>
+
       <!-- About Me -->
       <section>
         <h2
-          class="text-lg sm:text-xl font-bold text-green-600 border-b border-green-600 pb-2 mb-2"
+          class="text-lg sm:text-xl font-bold text-primary border-b border-primary pb-2 mb-2"
         >
           ABOUT ME
         </h2>
-        <p class="text-sm sm:text-base whitespace-pre-line">{RESUME.ABOUT}</p>
+        <p class="text-sm sm:text-base whitespace-pre-line">
+          {BASE_RESUME.about}
+        </p>
       </section>
 
       <!-- Skills -->
       <section>
         <h2
-          class="text-lg sm:text-xl font-bold text-green-600 border-b border-green-600 pb-2 mb-2"
+          class="text-lg sm:text-xl font-bold text-primary border-b border-primary pb-2 mb-2"
         >
           SKILLS
         </h2>
-        <ResumeSkillGroups skillGroups={RESUME.SKILL_GROUPS} />
+        <Skills skills={BASE_RESUME.skills} />
       </section>
 
       <!-- Experience -->
       <section>
         <h2
-          class="text-lg sm:text-xl font-bold text-green-600 border-b border-green-600 pb-2 mb-2"
+          class="text-lg sm:text-xl font-bold text-primary border-b border-primary pb-2 mb-2"
         >
           WORK EXPERIENCE
         </h2>
-        <ResumeWorkExperience jobs={RESUME.JOBS} />
+        <ResumeJobs jobs={BASE_RESUME.jobs} />
       </section>
 
       <!-- Projects -->
       <section>
         <h2
-          class="text-lg sm:text-xl font-bold text-green-600 border-b border-green-600 pb-2 mb-2"
+          class="text-lg sm:text-xl font-bold text-primary border-b border-primary pb-2 mb-2"
         >
           PROJECTS
         </h2>
-        <ResumeProjects projects={RESUME.PROJECTS} />
+        <ResumeProjects projects={BASE_RESUME.projects} />
       </section>
 
       <!-- Education -->
       <section>
         <h2
-          class="text-lg sm:text-xl font-bold text-green-600 border-b border-green-600 pb-2 mb-2"
+          class="text-lg sm:text-xl font-bold text-primary border-b border-primary pb-2 mb-2"
         >
           EDUCATION
         </h2>
-        <ResumeDegrees degrees={RESUME.DEGREES} />
+        <ResumeDegrees degrees={BASE_RESUME.degrees} />
       </section>
     </div>
   </main>

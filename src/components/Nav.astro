@@ -21,7 +21,8 @@ const currentPath = Astro.url.pathname;
 ---
 
 <nav
-  class="w-full py-6 px-4 md:px-8 border-b-2 border-green-600 text-green-600 dark:text-green-600"
+  id="nav"
+  class="w-full py-6 px-4 md:px-8 border-b-2 border-primary text-primary"
 >
   <div
     class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center"
@@ -43,7 +44,7 @@ const currentPath = Astro.url.pathname;
             href={item.path}
             class:list={[
               "text-base font-mono font-medium hover:brightness-125 transition-colors",
-              currentPath === item.path ? "font-bold" : "",
+              { underline: currentPath === item.path },
             ]}
           >
             {item.label}

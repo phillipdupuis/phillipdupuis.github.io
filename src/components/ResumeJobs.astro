@@ -1,5 +1,5 @@
 ---
-import type { Job } from "../content/resume";
+import type { Job } from "../resume/schema";
 
 interface Props {
   jobs: Job[];
@@ -12,11 +12,11 @@ const { jobs } = Astro.props;
   {
     jobs.map((job) => (
       <section>
-        <div class="flex justify-between items-baseline text-green-600 flex-wrap">
+        <div class="text-primary brightness-75 flex flex-wrap justify-between items-baseline">
           <h3 class="font-semibold">{job.title}</h3>
           <span>{job.period}</span>
         </div>
-        <div class="flex justify-between items-baseline text-green-600 flex-wrap">
+        <div class="text-primary brightness-75 flex flex-wrap justify-between items-baseline">
           <span>{job.company}</span>
           <span>{job.location}</span>
         </div>

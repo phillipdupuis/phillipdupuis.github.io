@@ -1,0 +1,9 @@
+nav,
+footer,
+.no-print {
+  display: none !important;
+}
+
+section {
+  page-break-inside: avoid;
+}

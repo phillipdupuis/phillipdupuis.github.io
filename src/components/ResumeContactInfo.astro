@@ -1,0 +1,46 @@
+---
+import { Icon } from "astro-icon/components";
+
+import type { Contact } from "../resume/schema";
+
+interface Props {
+  contact: Contact;
+}
+
+const { contact } = Astro.props;
+---
+
+<div class="flex flex-col space-y-2 justify-between items-center mx-auto">
+  <h1 class="text-primary text-2xl font-mono font-medium">{contact.name}</h1>
+  <div
+    class="flex flex-wrap space-x-3 text-base items-center justify-center sm:max-w-[75%]"
+  >
+    {
+      [
+        [contact.email, "mail"],
+        [contact.phone, "phone"],
+        [contact.address, "map-pin"],
+        [contact.linkedin, "linkedin"],
+        [contact.github, "github"],
+        [contact.website, "globe"],
+      ]
+        .filter(([value, _]) => !!value)
+        .map(([value, icon]) => (
+          <div class="flex items-center space-x-1">
+            <Icon name={icon} class="text-primary" />
+            {value?.startsWith("http") ? (
+              <a
+                href={value}
+                target="_blank"
+                class="text-muted-foreground hover:brightness-125"
+              >
+                {value}
+              </a>
+            ) : (
+              <span class="text-muted-foreground">{value}</span>
+            )}
+          </div>
+        ))
+    }
+  </div>
+</div>

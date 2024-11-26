@@ -1,5 +1,5 @@
 ---
-import type { Degree } from "../content/resume";
+import type { Degree } from "../resume/schema";
 
 interface Props {
   degrees: Degree[];
@@ -12,11 +12,11 @@ const { degrees } = Astro.props;
   {
     degrees.map((degree) => (
       <section>
-        <div class="flex justify-between items-baseline text-green-600 flex-wrap">
+        <div class="text-primary brightness-75 flex flex-wrap justify-between items-baseline">
           <h3 class="font-semibold">{degree.title}</h3>
           <span>{degree.period}</span>
         </div>
-        <div class="flex justify-between items-baseline text-green-600 flex-wrap">
+        <div class="text-primary brightness-75 flex flex-wrap justify-between items-baseline">
           <span>{degree.institution}</span>
           <span>{degree.location}</span>
         </div>

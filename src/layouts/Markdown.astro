@@ -1,0 +1,32 @@
+---
+import Layout from "./Layout.astro";
+
+interface Props {
+  /** Title for the site */
+  title: string;
+  /** Meta description for SEO */
+  description: string;
+  /** Author of the site */
+  author?: string;
+  /** Keywords for SEO, as a comma-separated string */
+  keywords?: string;
+}
+
+const { title, description, author } = Astro.props;
+const keywords = Astro.props.keywords
+  ?.split(",")
+  .map((keyword) => keyword.trim());
+---
+
+<Layout
+  title={title}
+  description={description}
+  author={author}
+  keywords={keywords}
+>
+  <main>
+    <div class="max-w-4xl mx-auto space-y-6 py-8 px-6 sm:px-2">
+      <slot />
+    </div>
+  </main>
+</Layout>

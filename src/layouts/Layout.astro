@@ -1,4 +1,8 @@
 ---
+import "../base.css";
+
+import Nav from "../components/Nav.astro";
+
 interface Props {
   /** Title for the site */
   title: string;
@@ -9,6 +13,7 @@ interface Props {
   /** Keywords for SEO */
   keywords?: string[];
 }
+
 const DEFAULT_AUTHOR = "Phillip Dupuis";
 const DEFAULT_KEYWORDS = [
   "phillipdupuis",
@@ -60,7 +65,24 @@ const keywords = [
     <meta name="twitter:url" content={Astro.url} />
     <meta name="twitter:image" content="" />
   </head>
-  <body class="w-full bg-neutral-100 dark:bg-neutral-800">
+  <body class="w-full">
+    <Nav />
     <slot />
   </body>
 </html>
+
+<!-- <script>
+  // Add "dark" class to body if media query matches
+  window.addEventListener("DOMContentLoaded", () => {
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    const body = document.querySelector("body");
+    if (!body) {
+      return;
+    }
+    if (prefersDarkScheme.matches) {
+      body.classList.add("dark");
+    } else {
+      body.classList.remove("dark");
+    }
+  });
+</script> -->

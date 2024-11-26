@@ -5,8 +5,10 @@ import react from "@astrojs/react";
 
 import tailwind from "@astrojs/tailwind";
 
+import icon from "astro-icon";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), tailwind()],
+  integrations: [react(), icon(), tailwind({ applyBaseStyles: false })],
   site: "https://phillipdupuis.github.io",
 });
