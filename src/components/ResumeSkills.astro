@@ -1,4 +1,7 @@
 ---
+import { Icon } from "astro-icon/components";
+
+import Badge from "./Badge.astro";
 import type { SkillGroup } from "../resume/schema";
 
 interface Props {
@@ -8,14 +11,20 @@ interface Props {
 const { skills } = Astro.props;
 ---
 
-<div class="space-y-1 text-sm sm:text-base">
+<div class="space-y-2 text-sm sm:text-base">
   {
+    // skills.flatMap((group) => group.skills).map((skill) => (
+    //   <Badge color={group.color}>{skill}</Badge>
+    // )))
     skills.map((group) => (
-      <div class="flex flex-wrap items-baseline gap-x-2">
-        <div class="text-primary brightness-75 flex items-center gap-x-2 font-semibold">
+      <div class="flex flex-wrap items-baseline gap-2">
+        {/* <div class="text-primary brightness-75 flex items-center gap-x-2 font-semibold">
           <h3>{group.category}:</h3>
-        </div>
-        <p>
+        </div> */}
+        {group.skills.map((skill) => (
+          <Badge color={group.color}>{skill}</Badge>
+        ))}
+        {/* <p>
           {group.skills.map((skill, index) => (
             <span>
               <span
@@ -31,7 +40,7 @@ const { skills } = Astro.props;
               </span>
             </span>
           ))}
-        </p>
+        </p> */}
       </div>
     ))
   }

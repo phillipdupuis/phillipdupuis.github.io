@@ -1,3 +1,6 @@
+ordering:
+  -
+
 contact:
   name: Phillip Dupuis
   email: phillip_dupuis@alumni.brown.edu
@@ -9,6 +12,45 @@ about: |
   I am an engineer with over 10 years of professional experience in full-stack development, distributed computing, and AI/LLM integrations. I have a strong background in building scalable applications for healthcare, quantitative finance, and data analytics, with expertise in Python, Node/TypeScript, React, and cloud infrastructure technologies.
 
 skills:
+  - category: Python
+    color: green
+    skills: [Django, Dask, Pandas, NumPy, SciPy, FastAPI, C and Rust extensions]
+  - category: TypeScript
+    color: blue
+    skills: [Node, React, Next, Astro, Vite, Playwright, Jest, Cypress]
+  - category: DevOps
+    color: purple
+    skills: [Docker, Kubernetes, Jenkins, GitHub Actions, Azure, AWS]
+  - category: AI/ML
+    color: yellow
+    skills:
+      [
+        Agentic workflows,
+        Function/Tool calling,
+        Custom Integrations,
+        Vector databases,
+        RAG,
+      ]
+  - category: Databases
+    color: red
+    skills: [PostgreSQL, Redis, MongoDB, Amazon S3, Elasticsearch]
+  - category: General
+    color: dark
+    skills:
+      [
+        Leadership,
+        Team management,
+        Mentoring,
+        Problem-solving,
+        Communication,
+        Collaboration,
+      ]
+
+skills_DEPRECATED:
+  - category: Python
+    skills:
+      - name:
+
   - category: Languages
     skills:
       - name: Python

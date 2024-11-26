@@ -21,18 +21,22 @@ export type Contact = z.infer<typeof ContactSchema>;
 export const AboutSchema = z.string();
 export type About = z.infer<typeof AboutSchema>;
 
-export const SkillSchema = z.object({
-  name: z.string().describe("Name of the skill, e.g. 'Github Actions'"),
-  details: z
-    .string()
-    .optional()
-    .describe("Verbose description of how/when I used this skill"),
-});
-export type Skill = z.infer<typeof SkillSchema>;
+export const BADGE_COLORS = [
+  "dark",
+  "blue",
+  "red",
+  "green",
+  "yellow",
+  "indigo",
+  "purple",
+  "pink",
+] as const;
+export type BadgeColor = (typeof BADGE_COLORS)[number];
 
 export const SkillGroupSchema = z.object({
   category: z.string(),
-  skills: z.array(SkillSchema),
+  skills: z.array(z.string()),
+  color: z.optional(z.enum(BADGE_COLORS)),
 });
 export type SkillGroup = z.infer<typeof SkillGroupSchema>;
 
@@ -61,6 +65,16 @@ export const DegreeSchema = z.object({
   description: z.string().optional(),
 });
 export type Degree = z.infer<typeof DegreeSchema>;
+
+// const SectionName = z.union([
+//   z.literal("contact"),
+//   z.literal("about"),
+//   z.literal("skills"),
+//   z.literal("jobs"),
+//   z.literal("projects"),
+//   z.literal("degrees"),
+// ]);
+// export type SectionName = z.infer<typeof SectionName>;
 
 export const ResumeSchema = z.object({
   contact: ContactSchema,

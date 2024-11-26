@@ -47,7 +47,6 @@ const keywords = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico" /> -->
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -64,25 +63,18 @@ const keywords = [
     <meta name="twitter:description" content={description} />
     <meta name="twitter:url" content={Astro.url} />
     <meta name="twitter:image" content="" />
+    <!-- Initialize dark mode -->
+    <script is:inline>
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+    </script>
   </head>
   <body class="w-full">
     <Nav />
     <slot />
   </body>
 </html>
-
-<!-- <script>
-  // Add "dark" class to body if media query matches
-  window.addEventListener("DOMContentLoaded", () => {
-    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-    const body = document.querySelector("body");
-    if (!body) {
-      return;
-    }
-    if (prefersDarkScheme.matches) {
-      body.classList.add("dark");
-    } else {
-      body.classList.remove("dark");
-    }
-  });
-</script> -->
