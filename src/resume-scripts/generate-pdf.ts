@@ -41,6 +41,11 @@ export async function generateResumePDF({
     const context = await browser.newContext();
     const page = await context.newPage();
 
+    // Emulate dark mode if enabled
+    if (dark) {
+      await page.emulateMedia({ colorScheme: "dark" });
+    }
+
     // Handle both URL and local file inputs
     if (input.startsWith("http")) {
       await page.goto(input, { waitUntil: "networkidle", timeout });
@@ -53,11 +58,6 @@ export async function generateResumePDF({
     if (cssPath) {
       const customCss = readFileSync(cssPath, "utf-8");
       await page.addStyleTag({ content: customCss });
-    }
-
-    // Emulate dark mode if enabled
-    if (dark) {
-      await page.emulateMedia({ colorScheme: "dark" });
     }
 
     await page.pdf({
@@ -74,11 +74,11 @@ export async function generateResumePDF({
 const program = new Command();
 
 program
-  .name("generate-pdf")
+  .name("pdf")
   .description("Generate a PDF version of your resume from HTML")
-  .requiredOption("-i, --input <path>", "Input HTML file or URL")
+  .option("-i, --input <path>", "Input HTML file or URL")
   .option("-o, --output <path>", "Output PDF file path", "resume.pdf")
-  .option("--dark", "Use dark mode for printing")
+  .option("--dark", "Use dark mode")
   .option("--format <type>", "Paper format (Letter/A4/Legal)", "Letter")
   .option("--scale <factor>", "Scale factor for the PDF", "0.7")
   .option("--css <path>", "Custom CSS file path", defaultCssPath)

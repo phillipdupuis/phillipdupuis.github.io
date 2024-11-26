@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-function readFromEnv(val: string | undefined): string | undefined {
+function $dollarMeansGetFromEnv(val: string | undefined): string | undefined {
   if (val && val.startsWith("$")) {
     return process.env[val.slice(1)];
   }
@@ -10,8 +10,8 @@ function readFromEnv(val: string | undefined): string | undefined {
 export const ContactSchema = z.object({
   name: z.string(),
   email: z.string().email(),
-  address: z.string().optional().transform(readFromEnv),
-  phone: z.string().optional().transform(readFromEnv),
+  address: z.string().optional().transform($dollarMeansGetFromEnv),
+  phone: z.string().optional().transform($dollarMeansGetFromEnv),
   website: z.string().url().optional(),
   linkedin: z.string().url().optional(),
   github: z.string().url().optional(),
@@ -21,7 +21,7 @@ export type Contact = z.infer<typeof ContactSchema>;
 export const AboutSchema = z.string();
 export type About = z.infer<typeof AboutSchema>;
 
-export const BADGE_COLORS = [
+export const SKILL_CATEGORY_COLORS = [
   "dark",
   "blue",
   "red",
@@ -31,14 +31,13 @@ export const BADGE_COLORS = [
   "purple",
   "pink",
 ] as const;
-export type BadgeColor = (typeof BADGE_COLORS)[number];
-
-export const SkillGroupSchema = z.object({
+export type SkillCategoryColor = (typeof SKILL_CATEGORY_COLORS)[number];
+export const SkillCategorySchema = z.object({
   category: z.string(),
   skills: z.array(z.string()),
-  color: z.optional(z.enum(BADGE_COLORS)),
+  color: z.optional(z.enum(SKILL_CATEGORY_COLORS)),
 });
-export type SkillGroup = z.infer<typeof SkillGroupSchema>;
+export type SkillCategory = z.infer<typeof SkillCategorySchema>;
 
 export const JobSchema = z.object({
   title: z.string(),
@@ -66,22 +65,15 @@ export const DegreeSchema = z.object({
 });
 export type Degree = z.infer<typeof DegreeSchema>;
 
-// const SectionName = z.union([
-//   z.literal("contact"),
-//   z.literal("about"),
-//   z.literal("skills"),
-//   z.literal("jobs"),
-//   z.literal("projects"),
-//   z.literal("degrees"),
-// ]);
-// export type SectionName = z.infer<typeof SectionName>;
-
 export const ResumeSchema = z.object({
+  sections: z
+    .optional(z.array(z.string()))
+    .default(["contact", "about", "skills", "jobs", "projects", "degrees"]),
   contact: ContactSchema,
   about: AboutSchema,
-  skills: z.array(SkillGroupSchema),
-  jobs: z.array(JobSchema),
-  projects: z.array(ProjectSchema),
-  degrees: z.array(DegreeSchema),
+  skills: z.array(SkillCategorySchema).default([]),
+  jobs: z.array(JobSchema).default([]),
+  projects: z.array(ProjectSchema).default([]),
+  degrees: z.array(DegreeSchema).default([]),
 });
 export type Resume = z.infer<typeof ResumeSchema>;

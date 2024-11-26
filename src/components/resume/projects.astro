@@ -1,0 +1,60 @@
+---
+import { Icon } from "astro-icon/components";
+
+import type { Project } from "../../resume-schema";
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+
+const githubStars = new Map<string, string>();
+
+await Promise.all(
+  projects.map(async (project) => {
+    const url = project.githubUrl;
+    if (!url) return;
+    const [_, owner, repo] = new URL(url).pathname.split("/");
+    const response = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}`
+    );
+    const data = await response.json();
+    githubStars.set(url, data.stargazers_count);
+  })
+);
+---
+
+{
+  projects.length && (
+    <div class="space-y-4 text-sm sm:text-base">
+      {projects.map((project) => (
+        <section class="space-y-2">
+          <div class="text-primary brightness-75 flex flex-wrap justify-between items-center">
+            <h3 class="font-semibold flex-1">{project.title}</h3>
+            {project.githubUrl && (
+              <>
+                <a
+                  class="text-muted-foreground hover:brightness-125"
+                  href={project.githubUrl}
+                  target="_blank"
+                >
+                  {project.githubUrl}
+                </a>
+                {githubStars.has(project.githubUrl) && (
+                  <span class="flex items-center ml-2">
+                    <Icon name="star" class="text-primary" />
+                    <span class="text-muted-foreground">
+                      {githubStars.get(project.githubUrl)}
+                    </span>
+                  </span>
+                )}
+              </>
+            )}
+          </div>
+          <p class="whitespace-pre-line">{project.description}</p>
+        </section>
+      ))}
+    </div>
+  )
+}

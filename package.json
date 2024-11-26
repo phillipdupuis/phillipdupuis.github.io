@@ -8,7 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "pdf": "NODE_OPTIONS=\"--loader ts-node/esm\" ts-node src/resume/generate-pdf.ts"
+    "pdf": "NODE_OPTIONS=\"--loader ts-node/esm\" ts-node src/resume-scripts/generate-pdf.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

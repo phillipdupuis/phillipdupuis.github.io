@@ -1,0 +1,82 @@
+contact:
+  name: Phillip Dupuis
+  email: phillip_dupuis@alumni.brown.edu
+  address: Cambridge, Massachusetts
+  linkedin: https://www.linkedin.com/in/phillip-dupuis/
+  github: https://github.com/phillipdupuis
+
+about: >
+  I am an engineer with over 10 years of professional experience in full-stack development, 
+  distributed computing, and AI/LLM integrations. I have a strong background in building 
+  scalable applications for healthcare, quantitative finance, and data analytics, with expertise 
+  in Python, Node/TypeScript, React, and cloud infrastructure technologies.
+
+skills:
+  - category: Python
+    color: green
+    skills: [Django, Dask, Pandas, NumPy, SciPy, FastAPI, C and Rust extensions]
+  - category: TypeScript
+    color: blue
+    skills: [Node, React, Next, Astro, Vite, Playwright, Jest, Cypress]
+  - category: DevOps
+    color: purple
+    skills: [Docker, Kubernetes, Jenkins, GitHub Actions, Azure, AWS]
+  - category: AI/ML
+    color: yellow
+    skills:
+      [
+        Agentic workflows,
+        Function/Tool calling,
+        Custom Integrations,
+        Vector databases,
+        RAG,
+      ]
+  - category: Databases
+    color: red
+    skills: [PostgreSQL, Redis, MongoDB, Amazon S3, Elasticsearch]
+  - category: General
+    color: dark
+    skills:
+      [
+        Leadership,
+        Team management,
+        Mentoring,
+        Problem-solving,
+        Communication,
+        Collaboration,
+      ]
+
+jobs:
+  - title: Senior Software Engineer
+    company: Man Numeric
+    location: Boston, MA
+    period: 01/2020 to present
+    achievements:
+      - Created a feature-complete portfolio analytics platform over the course of four years.
+      - Built REST APIs, web applications, excel plugins, slack bots, and browser extensions.
+      - Published various node/python packages for internal use.
+      - Pioneered AI/LLM integrations with existing services within the company.
+      - Optimized legacy workflows via parallelization and distributed caching.
+  - title: Software Developer
+    company: MEDITECH
+    location: Framingham, MA
+    period: 08/2014 to 12/2019
+    achievements:
+      - Led development of an emergency room wait list enhancement that streamlined hospital workflows and automated critical processes; it reportedly has led to decreased wait times.
+      - Developed the proration algorithm, rule-building tools, statistical analysis routines, claims, and statements necessary for 'package billing', a practice popular in medical tourism; the resulting software is currently used in Ireland, the Middle East, and Singapore.
+
+projects:
+  - title: pydantic-to-typescript
+    githubUrl: https://github.com/phillipdupuis/pydantic-to-typescript
+    description: |
+      A python package for automatically generating TypeScript definitions from Pydantic models.
+      so you can ensure that your front-end and back-end models are always in sync. 
+      I created this while working on a large project with a team of contractors, and it seems to be broadly useful.
+
+degrees:
+  - title: BS in Applied Mathematics-Biology
+    institution: Brown University
+    location: Providence, RI
+    period: 09/2010 to 05/2014
+    description: >
+      My primary interests were genomics, probability, and statistical inference.

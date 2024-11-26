@@ -1,0 +1,27 @@
+---
+type HtmlProps = astroHTML.JSX.HTMLAttributes;
+
+interface Props extends HtmlProps {
+  label?: string;
+  className?: string;
+}
+
+const { label, className, ...ariaProps } = Astro.props;
+ariaProps["aria-label"] ??= label;
+---
+
+<section class="resume-section" {...ariaProps}>
+  {
+    label && (
+      <h2
+        class:list={[
+          "text-lg sm:text-xl font-bold text-primary border-b border-primary pb-2 mb-2",
+          className,
+        ]}
+      >
+        {label}
+      </h2>
+    )
+  }
+  <slot />
+</section>
