@@ -2,10 +2,7 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<button
-  id="set-theme-light"
-  class=":not(.dark):hidden hover:brightness-125 transition-colors p-2"
->
+<button id="set-theme-light" class="hover:brightness-125 transition-colors p-2">
   <Icon name="sun" class="text-primary" />
 </button>
 <button
@@ -16,30 +13,25 @@ import { Icon } from "astro-icon/components";
 </button>
 
 <script>
-  const setTheme = (theme: "dark" | "light") => {
+  const setTheme = (theme: "dark" | "light", save = false) => {
     document.documentElement.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("theme", theme);
+    document
+      .getElementById("set-theme-light")!
+      .classList.toggle("hidden", theme === "light");
+    if (save) localStorage.setItem("theme", theme);
   };
   document
     .getElementById("set-theme-light")!
-    .addEventListener("click", () => setTheme("light"));
+    .addEventListener("click", () => setTheme("light", true));
   document
     .getElementById("set-theme-dark")!
-    .addEventListener("click", () => setTheme("dark"));
+    .addEventListener("click", () => setTheme("dark", true));
   const savedTheme = localStorage.getItem("theme");
   const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light";
-  if (savedTheme && savedTheme !== systemTheme) {
-    if (savedTheme === "dark" || savedTheme === "light") {
-      setTheme(savedTheme);
-    } else {
-      localStorage.removeItem("theme");
-    }
-  } else {
-    document.documentElement.classList.toggle(
-      "dark",
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    );
-  }
+  setTheme(
+    savedTheme === "dark" || savedTheme === "light" ? savedTheme : systemTheme,
+    false
+  );
 </script>
