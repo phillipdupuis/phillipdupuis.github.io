@@ -74,7 +74,7 @@ export async function generateResumePDF({
 const program = new Command();
 
 program
-  .name("pdf")
+  .name("generate-pdf")
   .description("Generate a PDF version of your resume from HTML")
   .option("-i, --input <path>", "Input HTML file or URL")
   .option("-o, --output <path>", "Output PDF file path", "resume.pdf")

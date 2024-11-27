@@ -1,0 +1,45 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button
+  id="set-theme-light"
+  class=":not(.dark):hidden hover:brightness-125 transition-colors p-2"
+>
+  <Icon name="sun" class="text-primary" />
+</button>
+<button
+  id="set-theme-dark"
+  class="dark:hidden hover:brightness-125 transition-colors p-2"
+>
+  <Icon name="moon" class="text-primary" />
+</button>
+
+<script>
+  const setTheme = (theme: "dark" | "light") => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  };
+  document
+    .getElementById("set-theme-light")!
+    .addEventListener("click", () => setTheme("light"));
+  document
+    .getElementById("set-theme-dark")!
+    .addEventListener("click", () => setTheme("dark"));
+  const savedTheme = localStorage.getItem("theme");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+  if (savedTheme && savedTheme !== systemTheme) {
+    if (savedTheme === "dark" || savedTheme === "light") {
+      setTheme(savedTheme);
+    } else {
+      localStorage.removeItem("theme");
+    }
+  } else {
+    document.documentElement.classList.toggle(
+      "dark",
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    );
+  }
+</script>

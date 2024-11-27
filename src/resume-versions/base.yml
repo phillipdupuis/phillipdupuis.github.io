@@ -15,48 +15,54 @@ skills:
   - category: Python
     color: green
     skills:
-      [
-        Python,
-        Django,
-        FastAPI,
-        Dask,
-        Pandas,
-        Task Graphs,
-        Distributed Computing,
-        C and Rust extensions,
-      ]
+      - Python
+      - Django
+      - FastAPI
+      - Dask
+      - Pandas
+      - Task Graphs
+      - Distributed Computing
+      - C and Rust extensions
   - category: TypeScript
     color: blue
     skills:
-      [
-        TypeScript,
-        Node,
-        React,
-        Next,
-        Astro,
-        Vite,
-        Playwright,
-        OAuth,
-        Web Workers,
-        Data Visualization,
-      ]
+      - TypeScript
+      - Node
+      - React
+      - Next
+      - Astro
+      - Vite
+      - Playwright
+      - OAuth
+      - Web Workers
+      - Data Visualization
   - category: DevOps
     color: purple
     skills:
-      [Docker, Kubernetes, Jenkins, GitHub Actions, Azure, AWS, Kibana, Grafana]
+      - Docker
+      - Kubernetes
+      - Jenkins
+      - GitHub Actions
+      - Azure
+      - AWS
+      - Kibana
+      - Grafana
   - category: Databases
     color: red
-    skills: [PostgreSQL, Redis, MongoDB, Amazon S3, Elasticsearch]
+    skills:
+      - PostgreSQL
+      - Redis
+      - MongoDB
+      - Amazon S3
+      - Elasticsearch
   - category: AI/ML
     color: yellow
     skills:
-      [
-        Agentic workflows,
-        Function/Tool calling,
-        Custom Integrations,
-        Vector databases,
-        RAG,
-      ]
+      - Agentic Workflows
+      - Function/Tool Calling
+      - Custom Integrations
+      - Vector Databases
+      - RAG
 
 jobs:
   - title: Senior Software Engineer

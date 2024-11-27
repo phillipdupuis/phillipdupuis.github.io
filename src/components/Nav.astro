@@ -1,5 +1,5 @@
 ---
-import DarkModeButton from "./DarkModeButton.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 
 interface NavItem {
   label: string;
@@ -52,7 +52,7 @@ const currentPath = Astro.url.pathname;
           </a>
         ))
       }
-      <DarkModeButton />
+      <ThemeToggle />
     </div>
   </div>
 </nav>
