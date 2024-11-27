@@ -1,4 +1,6 @@
 ---
+import DarkModeButton from "./DarkModeButton.astro";
+
 interface NavItem {
   label: string;
   path: `/${string}`;
@@ -11,7 +13,6 @@ interface Props {
 const DEFAULT_NAV_ITEMS = [
   { label: "Resume", path: "/resume" },
   { label: "Projects", path: "/projects" },
-  { label: "Contact", path: "/contact" },
 ];
 
 const { navItems = DEFAULT_NAV_ITEMS } = Astro.props;
@@ -36,7 +37,7 @@ const currentPath = Astro.url.pathname;
         Phillip Dupuis
       </a>
     </div>
-    <!-- Navigation Links -->
+    <!-- Navigation Links and Buttons -->
     <div class="flex items-center gap-8">
       {
         navItems.map((item) => (
@@ -51,6 +52,7 @@ const currentPath = Astro.url.pathname;
           </a>
         ))
       }
+      <DarkModeButton />
     </div>
   </div>
 </nav>

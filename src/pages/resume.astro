@@ -20,11 +20,13 @@ const RESUME = ResumeSchema.parse(RESUME_YAML);
       <Section aria-label="Contact info">
         <Contact contact={RESUME.contact} />
       </Section>
+
       <Section label="ABOUT">
         <p class="text-sm sm:text-base whitespace-pre-line">
           {RESUME.about}
         </p>
       </Section>
+
       <Section label="SKILLS">
         <Skills skills={RESUME.skills} />
       </Section>

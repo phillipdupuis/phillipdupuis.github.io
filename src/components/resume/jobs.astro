@@ -21,9 +21,9 @@ const { jobs } = Astro.props;
             <span>{job.company}</span>
             <span>{job.location}</span>
           </div>
-          <ul class="list-disc list-inside space-y-2 mt-2">
+          <ul class="list-disc list-outside pl-4 space-y-2 mt-2">
             {job.achievements.map((achievement) => (
-              <li class="ml-2">{achievement}</li>
+              <li>{achievement}</li>
             ))}
           </ul>
         </section>

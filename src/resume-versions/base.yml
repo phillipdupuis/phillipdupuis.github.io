@@ -14,13 +14,39 @@ about: >
 skills:
   - category: Python
     color: green
-    skills: [Django, Dask, Pandas, NumPy, SciPy, FastAPI, C and Rust extensions]
+    skills:
+      [
+        Python,
+        Django,
+        FastAPI,
+        Dask,
+        Pandas,
+        Task Graphs,
+        Distributed Computing,
+        C and Rust extensions,
+      ]
   - category: TypeScript
     color: blue
-    skills: [Node, React, Next, Astro, Vite, Playwright, Jest, Cypress]
+    skills:
+      [
+        TypeScript,
+        Node,
+        React,
+        Next,
+        Astro,
+        Vite,
+        Playwright,
+        OAuth,
+        Web Workers,
+        Data Visualization,
+      ]
   - category: DevOps
     color: purple
-    skills: [Docker, Kubernetes, Jenkins, GitHub Actions, Azure, AWS]
+    skills:
+      [Docker, Kubernetes, Jenkins, GitHub Actions, Azure, AWS, Kibana, Grafana]
+  - category: Databases
+    color: red
+    skills: [PostgreSQL, Redis, MongoDB, Amazon S3, Elasticsearch]
   - category: AI/ML
     color: yellow
     skills:
@@ -31,20 +57,6 @@ skills:
         Vector databases,
         RAG,
       ]
-  - category: Databases
-    color: red
-    skills: [PostgreSQL, Redis, MongoDB, Amazon S3, Elasticsearch]
-  - category: General
-    color: dark
-    skills:
-      [
-        Leadership,
-        Team management,
-        Mentoring,
-        Problem-solving,
-        Communication,
-        Collaboration,
-      ]
 
 jobs:
   - title: Senior Software Engineer
@@ -52,18 +64,37 @@ jobs:
     location: Boston, MA
     period: 01/2020 to present
     achievements:
-      - Created a feature-complete portfolio analytics platform over the course of four years.
-      - Built REST APIs, web applications, excel plugins, slack bots, and browser extensions.
-      - Published various node/python packages for internal use.
-      - Pioneered AI/LLM integrations with existing services within the company.
-      - Optimized legacy workflows via parallelization and distributed caching.
+      - >
+        Created a comprehensive portfolio analytics platform over the course of four years, 
+        replacing multiple legacy systems and reducing developer maintenance costs from 
+        full-time to just 4-8 hours per month (a 95% reduction). The platform is fully self-service
+        and is used by hundreds of portfolio managers, quants, and salespeople on a daily basis. 
+        Utilized React, Django, PostgreSQL, Redis, Excel plugins, and Slack bots.
+      - >
+        Developed a high-performance REST API for running computations on Dask clusters,
+        with custom DAG optimizations that reduce the average compute time from hours to seconds.
+        Expanded API adoption across several applications. In addition to improving user experience,
+        this has allowed numerous overnight jobs to be decommissioned.
+      - >
+        Led AI/LLM initiatives as the expert and point person in Boston (~200 employees).
+        Gave company-wide talks on utilizing function/tool calling effectively, mentored 
+        researchers and developers on best practices, and created a Slack bot with advanced 
+        RAG capabilities which receives thousands of queries every day.
+      - >
+        Published (internal) NPM packages for embedding LLMs in existing web applications and 
+        allowing them to act on behalf of the user. These packages were widely used both internally 
+        and in client demos and press interviews.
   - title: Software Developer
     company: MEDITECH
     location: Framingham, MA
     period: 08/2014 to 12/2019
     achievements:
-      - Led development of an emergency room wait list enhancement that streamlined hospital workflows and automated critical processes; it reportedly has led to decreased wait times.
-      - Developed the proration algorithm, rule-building tools, statistical analysis routines, claims, and statements necessary for 'package billing', a practice popular in medical tourism; the resulting software is currently used in Ireland, the Middle East, and Singapore.
+      - >
+        Led development of an emergency room wait list enhancement that streamlined hospital 
+        workflows and automated critical triaging processes, leading to decreased wait times
+        and improved outcomes.
+      - Developed the proration algorithm, rule-building tools, statistical desktop, claims,
+        and statements for 'package billing'.
 
 projects:
   - title: pydantic-to-typescript

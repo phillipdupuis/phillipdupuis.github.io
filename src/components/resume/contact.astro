@@ -11,7 +11,14 @@ const { contact } = Astro.props;
 ---
 
 <div class="flex flex-col space-y-2 justify-between items-center mx-auto">
-  <h1 class="text-primary text-2xl font-mono font-medium">{contact.name}</h1>
+  <h1
+    class="text-primary text-2xl font-mono font-medium flex flex-wrap gap-1 items-center"
+  >
+    <span>{contact.name}</span>
+    <a href="/resume.pdf" target="_blank" class="no-print">
+      <Icon name="pdf" />
+    </a>
+  </h1>
   <div
     class="flex flex-wrap space-x-3 text-base items-center justify-center sm:max-w-[75%]"
   >
