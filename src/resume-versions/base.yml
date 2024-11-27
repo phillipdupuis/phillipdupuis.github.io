@@ -82,7 +82,7 @@ jobs:
         Expanded API adoption across several applications. In addition to improving user experience,
         this has allowed numerous overnight jobs to be decommissioned.
       - >
-        Led AI/LLM initiatives as the expert and point person in Boston (~200 employees).
+        Led AI/LLM initiatives as the point person in Boston (~200 employees).
         Gave company-wide talks on utilizing function/tool calling effectively, mentored 
         researchers and developers on best practices, and created a Slack bot with advanced 
         RAG capabilities which receives thousands of queries every day.
@@ -96,9 +96,12 @@ jobs:
     period: 08/2014 to 12/2019
     achievements:
       - >
-        Led development of an emergency room wait list enhancement that streamlined hospital 
-        workflows and automated critical triaging processes, leading to decreased wait times
-        and improved outcomes.
+        Led development of software for Referral to Treatment Pathways (an NHS system for managing 
+        patient referrals and treatment timelines). Designed and implemented a statistical desktop 
+        that leverages Markov chains for predictive analytics.
+      - >
+        Created an 'emergency room wait list' product that streamlined hospital workflows and automated 
+        critical triaging processes, leading to decreased wait times and improved outcomes.
       - Developed the proration algorithm, rule-building tools, statistical desktop, claims,
         and statements for 'package billing'.
 

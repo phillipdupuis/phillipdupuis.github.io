@@ -35,14 +35,14 @@ await Promise.all(
             {project.githubUrl && (
               <>
                 <a
-                  class="text-muted-foreground hover:brightness-125"
+                  class="text-muted-foreground hover:brightness-125 mr-2"
                   href={project.githubUrl}
                   target="_blank"
                 >
                   {project.githubUrl}
                 </a>
                 {githubStars.has(project.githubUrl) && (
-                  <span class="flex items-center ml-2">
+                  <span class="flex items-center">
                     <Icon name="star" class="text-primary" />
                     <span class="text-muted-foreground">
                       {githubStars.get(project.githubUrl)}
